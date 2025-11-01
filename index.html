@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shai Rishi — Portfolio</title>
+  <link rel="stylesheet" href="first.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">Shai<span>Rishi</span></div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Flip Card -->
+  <section id="home" class="hero">
+    <div class="flip-card" id="flipCard">
+      <div class="flip-card-inner">
+        <!-- FRONT -->
+        <div class="flip-card-front">
+          <img src="shairishi passport size pic.jpg" alt="Shai Rishi" class="profile-img" />
+          <h1 id="typing"></h1>
+          <p class="subtitle">Software & Web Developer</p>
+          <div class="btn-group">
+            <a href="rishi resume 2025 (1).pdf" download class="btn">Download Resume</a>
+            <button id="flipBtn" class="btn secondary">Turn Back</button>
+          </div>
+        </div>
+
+        <!-- BACK -->
+        <div class="flip-card-back">
+          
+          <p style="text-align: center; font-size: medium; color: black;">
+            LOVE TO WORK AND COLLABORATE WITH YOU ❤️ !!
+          </p>
+          <button id="flipBack" class="btn">Back</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section about">
+    <h2>About Me</h2>
+    <p>
+      I’m <strong>Shai Rishi M D</strong>, a passionate IT professional who completed my
+      <strong>B.Tech in Information Technology in 2025</strong>. I specialize in
+      <strong>Web Application Development, Python, Java, SQL, and PEGA CSSA</strong>,
+      blending creativity with technical expertise to deliver efficient and meaningful solutions.
+      Certified as a <strong>PEGA CSA</strong> and <strong>CSSA</strong>, I apply process-driven
+      approaches to scalable application design and automation.
+      My major project — <strong>Driver Drowsiness Detection System</strong> — uses
+      <strong>Python, OpenCV, and Dlib</strong> to monitor driver eye activity in real-time and trigger alerts.
+      It enhanced my expertise in computer vision, real-time processing, and AI-driven solutions.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section skills">
+    <h2>Technical Skills</h2>
+    <div class="skill"><p>HTML</p><div class="bar"><span data-percent="89"></span></div></div>
+    <div class="skill"><p>CSS</p><div class="bar"><span data-percent="85"></span></div></div>
+    <div class="skill"><p>JavaScript</p><div class="bar"><span data-percent="80"></span></div></div>
+    <div class="skill"><p>Python</p><div class="bar"><span data-percent="82"></span></div></div>
+    <div class="skill"><p>Java</p><div class="bar"><span data-percent="65"></span></div></div>
+    <div class="skill"><p>PEGA CSSA</p><div class="bar"><span data-percent="75"></span></div></div>
+    <div class="skill"><p>SQL</p><div class="bar"><span data-percent="87"></span></div></div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section projects">
+    <h2>Featured Project</h2>
+    <div class="project-card">
+      <h3>Driver Drowsiness Detection System</h3>
+      <p>
+        A real-time computer vision system that enhances road safety by detecting driver fatigue.
+        Built using <strong>Python, OpenCV, and Dlib</strong>, it monitors eye closure patterns
+        and issues alerts when drowsiness is detected. This project demonstrates real-time
+        data handling, facial landmark detection, and efficient performance optimization.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section contact">
+    <h2>Contact Me</h2>
+    <p class="contact-intro">
+      I’d love to connect! Feel free to reach out for collaborations, opportunities, or queries.
+    </p>
+    <div class="contact-container">
+      <form action="mailto:shairishi.dt14@gmail.com" method="post" enctype="text/plain" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:shairishi.dt14@gmail.com">shairishi.dt14@gmail.com</a></p>
+        <p><strong>Phone:</strong> 6380540075</p>
+        <p><strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/shaid2003" target="_blank">
+            linkedin.com/in/shaid2003
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Shai Rishi | Designed with ❤️ and Code</p>
+  </footer>
+
+  <script src="first.js"></script>
+</body>
+</html>
+

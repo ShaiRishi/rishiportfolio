@@ -1,0 +1,309 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #fffdf9 0%, #fff6e0 100%);
+  color: #222;
+  scroll-behavior: smooth;
+}
+
+/* ==== Navbar ==== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 12px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  transition: 0.4s;
+}
+.navbar.scrolled {
+  background: #f3d78f;
+  box-shadow: 0 4px 12px rgba(255, 165, 0, 0.25);
+}
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+.logo span {
+  color: #ff9800;
+}
+.navbar nav a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  position: relative;
+}
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ff9800;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.3s;
+}
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+/* ==== Hero Flip Card ==== */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.flip-card {
+  background: transparent;
+  width: 330px;
+  height: 430px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 165, 0, 0.2);
+  padding: 30px;
+}
+
+.flip-card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  text-align: left;
+  overflow-y: auto;
+  padding-bottom: 50px;
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 0%;
+  object-fit: fill;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.3);
+  border: 4px solid #fff3cc;
+}
+
+#typing {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff9800;
+  min-height: 30px;
+  margin-bottom: 6px;
+}
+.subtitle {
+  color: #666;
+  font-size: 14px;
+}
+.btn-group {
+  margin-top: 60px;
+  display: flex;
+  gap: 10px;
+}
+.btn {
+  padding: 10px 18px;
+  background: #ffb800;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #ffa000;
+  
+}
+.btn.secondary {
+  background: #fff;
+  color: #ff9800;
+  border: 1.5px solid #ff9800;
+}
+.btn.secondary:hover {
+  background: #fff4db;
+}
+
+.flip-card-back h3 {
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+.flip-card-back p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+.flip-card-back h4 {
+  margin-top: 12px;
+  color: #ff9800;
+}
+.flip-card-back .small {
+  font-size: 13px;
+}
+.flip-card-back button{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ==== Section ==== */
+.section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.section h2 {
+  color: #ff9800;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+.section p {
+  color: #333;
+  line-height: 1.8;
+}
+
+/* ==== Skills ==== */
+.skills .skill {
+  margin-bottom: 18px;
+  text-align: left;
+}
+.skill p {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.bar {
+  background: #ffe7b8;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 10px;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffb800, #ff8c00);
+  border-radius: 10px;
+  transition: width 1.5s ease;
+}
+
+/* ==== Project ==== */
+.project-card {
+  background: #fff9e6;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 6px 25px rgba(255, 165, 0, 0.2);
+  text-align: left;
+}
+
+/* ==== Contact ==== */
+.contact {
+  background: #fffbe6;
+  padding: 60px 20px;
+  border-top: 3px solid #ffb300;
+}
+.contact-intro {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: #555;
+}
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1 1 320px;
+  max-width: 400px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 15px;
+  border: 2px solid #ffd580;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.4);
+}
+.contact-info {
+  font-size: 14px;
+  color: #333;
+  max-width: 250px;
+}
+.contact-info a {
+  color: #91836d;
+  text-decoration: none;
+}
+
+/* ==== Footer ==== */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #555;
+  background: #fff4d4;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 768px) {
+  .navbar nav {
+    display: none;
+  }
+  .section {
+    margin: 60px auto;
+  }
+  .flip-card {
+    width: 280px;
+    height: 400px;
+  }
+}
