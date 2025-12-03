@@ -39,46 +39,11 @@ window.addEventListener("scroll", () => {
   if (window.scrollY > 50) nav.classList.add("scrolled");
   else nav.classList.remove("scrolled");
 });
-// --- Smooth Fade-In On Scroll ---
-const fadeElements = document.querySelectorAll(
-    ".timeline-item, .project-row, .section-title"
-);
 
-const observer = new IntersectionObserver(
-    entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("fade-in");
-            }
-        });
-    },
-    { threshold: 0.2 }
-);
-
-fadeElements.forEach(el => observer.observe(el));
-
-
-// --- Hover Highlight ---
-document.querySelectorAll(".timeline-item, .project-row").forEach(item => {
-    item.addEventListener("mouseenter", () => {
-        item.classList.add("highlight");
-    });
-
-    item.addEventListener("mouseleave", () => {
-        item.classList.remove("highlight");
-    });
-});
-
-
-// --- Click to Expand (Optional) ---
-document.querySelectorAll(".timeline-item .details p").forEach(paragraph => {
-    paragraph.addEventListener("click", () => {
-        paragraph.classList.toggle("expand");
-    });
-});
 
 
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 llYear();
+
 
