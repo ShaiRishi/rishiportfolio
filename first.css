@@ -77,7 +77,7 @@ body{
   100% { transform: translateY(0px) }
 }
 .flip-card-front{ animation: floaty 6s ease-in-out infinite; }
-.profile-img{ width:140px; height:140px; border-radius:2px; object-fit:cover; border:6px solid rgba(255,255,255,0.95); box-shadow: 0 18px 50px rgba(16,24,40,0.12); }
+.profile-img{ width:140px; height:140px; border-radius:50%; object-fit:cover; border:6px solid rgba(255,255,255,0.95); box-shadow: 0 18px 50px rgba(16,24,40,0.12); }
 
 /* name typing */
 #typing{ font-weight:800; font-size:22px; letter-spacing:-0.2px; text-align:center; color:#0b1220; }
@@ -179,6 +179,7 @@ footer{ text-align:center; padding:28px 12px; margin-top:40px; color:#374151; fo
   .navbar{ padding:0 14px }
   .logo{ font-size:1.05rem }
 }
+
 
 
 
