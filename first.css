@@ -137,7 +137,7 @@ body{
 
 /* image effects */
 .project-img{ position:relative; }
-.project-img img{ width:100%; height:auto; border-radius:12px; object-fit:cover; transition: transform .6s cubic-bezier(.2,.9,.25,1), filter .45s; box-shadow: 0 20px 50px rgba(9,12,18,0.06) }
+.project-img img{ width:50%; height:auto; border-radius:12px; object-fit:cover; transition: transform .6s cubic-bezier(.2,.9,.25,1), filter .45s; box-shadow: 0 20px 50px rgba(9,12,18,0.06) }
 .project-img:hover img{ transform: scale(1.03) rotate(-0.6deg); filter: saturate(1.02) }
 
 /* floating accent blob behind project image */
@@ -179,6 +179,7 @@ footer{ text-align:center; padding:28px 12px; margin-top:40px; color:#374151; fo
   .navbar{ padding:0 14px }
   .logo{ font-size:1.05rem }
 }
+
 
 
 
