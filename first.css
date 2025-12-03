@@ -48,7 +48,7 @@ body { background: #fdf6e3; color: #333; line-height: 1.7; }
 .project-row { display: grid; grid-template-columns: 1fr 450px; gap: 40px; margin-bottom: 80px; align-items: center; }
 .project-text h3 { font-size: 26px; margin-bottom: 10px; }
 .project-text p { font-size: 16px; }
-.project-img img { width: 100%; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
+.project-img img { width: 75%; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); }
 
 @media(max-width:900px){
   .project-row { grid-template-columns: 1fr; }
@@ -66,6 +66,7 @@ body { background: #fdf6e3; color: #333; line-height: 1.7; }
 
 /* ===================== FOOTER ===================== */
 footer { text-align: center; padding: 20px; margin-top: 40px; background: #fff3e6; }
+
 
 
 
