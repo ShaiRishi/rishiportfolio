@@ -227,14 +227,91 @@ body {
   transition: width 1.5s ease;
 }
 
-/* ==== Project ==== */
-.project-card {
-  background: #fff9e6;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 6px 25px rgba(255, 165, 0, 0.2);
-  text-align: left;
+/* Section base layout */
+.section-block {
+    margin: 80px 0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
 }
+
+.section-title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Timeline Layout */
+.timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 30px;
+}
+
+.timeline-item .time {
+    font-size: 16px;
+    color: #444;
+}
+
+.timeline-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.timeline-item p {
+    margin-top: 8px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Project Layout */
+.project-row {
+    display: grid;
+    grid-template-columns: 1fr 450px;
+    gap: 40px;
+    align-items: center;
+}
+
+.project-text h3 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.project-text p {
+    margin-top: 12px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* Project image */
+.project-img img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .section-block {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .project-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* ==== Contact ==== */
 .contact {
@@ -307,3 +384,4 @@ footer {
     height: 400px;
   }
 }
+
