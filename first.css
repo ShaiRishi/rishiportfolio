@@ -384,4 +384,39 @@ footer {
     height: 400px;
   }
 }
+/* Fade-in animation */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item,
+.project-row,
+.section-title {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: 0.8s ease;
+}
+
+/* Hover highlight */
+.highlight {
+    background: rgba(0, 0, 0, 0.03);
+    padding: 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+/* Expand paragraph text */
+.timeline-item .details p {
+    max-height: 70px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: max-height 0.4s ease;
+}
+
+.timeline-item .details p.expand {
+    max-height: 500px;
+}
+
+
 
