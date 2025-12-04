@@ -8,166 +8,197 @@
 </head>
 <body>
   <!-- Navigation -->
-  <header class="navbar">
-    <div class="logo">Shai<span>Rishi</span></div>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="navbar" role="banner">
+    <div class="nav-inner">
+      <div class="logo" aria-label="Shai Rishi logo">Shai<span>Rishi</span></div>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar1"></span>
+        <span class="bar2"></span>
+        <span class="bar3"></span>
+      </button>
+
+      <nav id="siteNav" role="navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero Flip Card -->
-  <section id="home" class="hero">
-    <div class="flip-card" id="flipCard">
-      <div class="flip-card-inner">
-        <!-- FRONT -->
-        <div class="flip-card-front">
-          <img src="shairishi passport size pic.jpg" alt="Shai Rishi" class="profile-img" />
-          <h1 id="typing"></h1>
-          <p class="subtitle">Software & Web Developer</p>
-          <div class="btn-group">
-            <a href="rishi resume 2025 (1).pdf" download class="btn">Download Resume</a>
-            <button id="flipBtn" class="btn secondary">Turn Back</button>
+  <main>
+    <section id="home" class="hero" aria-labelledby="home-heading">
+      <div class="flip-card" id="flipCard" aria-hidden="false">
+        <div class="flip-card-inner">
+          <!-- FRONT -->
+          <div class="flip-card-front" role="region" aria-label="Profile front">
+            <img src="shairishi_passport_size_pic.jpg" alt="Portrait of Shai Rishi" class="profile-img" />
+            <h1 id="typing" aria-live="polite"></h1>
+            <p class="subtitle">Software & Web Developer</p>
+            <div class="btn-group">
+              <a href="rishi_resume_2025.pdf" download class="btn">Download Resume</a>
+              <button id="flipBtn" class="btn secondary" aria-pressed="false">More</button>
+            </div>
+          </div>
+
+          <!-- BACK -->
+          <div class="flip-card-back" role="region" aria-label="Profile back">
+            <p class="back-text">
+              LOVE TO WORK AND COLLABORATE WITH YOU ❤️ !!
+            </p>
+            <button id="flipBack" class="btn">Back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        I’m <strong>Shai Rishi M D</strong>, a passionate IT professional who completed my
+        <strong>B.Tech in Information Technology in 2025</strong>. I specialize in
+        <strong>Web Application Development, Python, Java, SQL, and PEGA CSSA</strong>,
+        blending creativity with technical expertise to deliver efficient and meaningful solutions.
+        Certified as a <strong>PEGA CSA</strong> and <strong>CSSA</strong>, I apply process-driven
+        approaches to scalable application design and automation.
+        My major project — <strong>Driver Drowsiness Detection System</strong> — uses
+        <strong>Python, OpenCV, and Dlib</strong> to monitor driver eye activity in real-time and trigger alerts.
+        It enhanced my expertise in computer vision, real-time processing, and AI-driven solutions.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Technical Skills</h2>
+
+      <div class="skill">
+        <p>HTML</p>
+        <div class="bar" aria-hidden="true"><span data-percent="89"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>CSS</p>
+        <div class="bar" aria-hidden="true"><span data-percent="85"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>JavaScript</p>
+        <div class="bar" aria-hidden="true"><span data-percent="80"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>Python</p>
+        <div class="bar" aria-hidden="true"><span data-percent="82"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>Java</p>
+        <div class="bar" aria-hidden="true"><span data-percent="65"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>PEGA CSSA</p>
+        <div class="bar" aria-hidden="true"><span data-percent="75"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>SQL</p>
+        <div class="bar" aria-hidden="true"><span data-percent="87"></span></div>
+      </div>
+
+      <div class="skill">
+        <p>AI AGENTS</p>
+        <div class="bar" aria-hidden="true"><span data-percent="90"></span></div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section-block" id="education" aria-labelledby="education-heading">
+      <h2 id="education-heading" class="section-title">Education</h2>
+
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="time">2018 - 2019</div>
+          <div class="details">
+            <h3>St.Joseph Matric High School - Mannargudi | SSLC</h3>
+            <p>Completed SSLC under the Tamil Nadu State Board with a strong foundation in Mathematics, Science, and English.</p>
           </div>
         </div>
 
-        <!-- BACK -->
-        <div class="flip-card-back">
-          
-          <p style="text-align: center; font-size: medium; color: black;">
-            LOVE TO WORK AND COLLABORATE WITH YOU ❤️ !!
-          </p>
-          <button id="flipBack" class="btn">Back</button>
+        <div class="timeline-item">
+          <div class="time">2020 - 2021</div>
+          <div class="details">
+            <h3>SBA Matric Higher Secondary School - Mannargudi | HSC</h3>
+            <p>Completed HSC with Maths–Biology under the Tamil Nadu State Board, strengthening problem-solving skills.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="time">2021 - 2025</div>
+          <div class="details">
+            <h3>Sri Sairam Institute Of Technology - Chennai | B.Tech (IT)</h3>
+            <p>Completed B.Tech in Information Technology, building practical skills through projects and labs.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About -->
-  <section id="about" class="section about">
-    <h2>About Me</h2>
-    <p>
-      I’m <strong>Shai Rishi M D</strong>, a passionate IT professional who completed my
-      <strong>B.Tech in Information Technology in 2025</strong>. I specialize in
-      <strong>Web Application Development, Python, Java, SQL, and PEGA CSSA</strong>,
-      blending creativity with technical expertise to deliver efficient and meaningful solutions.
-      Certified as a <strong>PEGA CSA</strong> and <strong>CSSA</strong>, I apply process-driven
-      approaches to scalable application design and automation.
-      My major project — <strong>Driver Drowsiness Detection System</strong> — uses
-      <strong>Python, OpenCV, and Dlib</strong> to monitor driver eye activity in real-time and trigger alerts.
-      It enhanced my expertise in computer vision, real-time processing, and AI-driven solutions.
-    </p>
-  </section>
+    <!-- Projects -->
+    <section id="projects" class="section-block" aria-labelledby="projects-heading">
+      <h2 id="projects-heading" class="section-title">Projects</h2>
 
-  <!-- Skills -->
-  <section id="skills" class="section skills">
-    <h2>Technical Skills</h2>
-    <div class="skill"><p>HTML</p><div class="bar"><span data-percent="89"></span></div></div>
-    <br>
-    <div class="skill"><p>CSS</p><div class="bar"><span data-percent="85"></span></div></div>
-    <br>
-    <div class="skill"><p>JavaScript</p><div class="bar"><span data-percent="80"></span></div></div>
-    <br>
-    <div class="skill"><p>Python</p><div class="bar"><span data-percent="82"></span></div></div>
-    <br>
-    <div class="skill"><p>Java</p><div class="bar"><span data-percent="65"></span></div></div>
-    <br>
-    <div class="skill"><p>PEGA CSSA</p><div class="bar"><span data-percent="75"></span></div></div>
-    <br>
-    <div class="skill"><p>SQL</p><div class="bar"><span data-percent="87"></span></div></div>
-    <br>
-    <div class="skill"><p>AI AGENTS</p><div class="bar"><span data-percent="90"></span></div></div>
-  </section>
-
-
-
-
-<!-- EDUCATION -->
-<section class="section-block">
-    <h2 class="section-title">Education</h2>
-
-    <div class="timeline-list">
-        <div class="timeline-item">
-            <div class="time">2018 - 2019</div>
-            <div class="details">
-                <h3>St.Joseph Matric High School - Mannargudi| SSLC</h3>
-                <p>Completed SSLC under the Tamil Nadu State Board with a strong foundation in Mathematics, Science, and English. This phase helped build my core academic skills and prepared me for higher studies in technology.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="time">2020 - 2021</div>
-            <div class="details">
-                <h3>SBA Matric Higher Secondary School - Mannargudi| HSC</h3>
-                <p>Completed HSC with Maths–Biology under the Tamil Nadu State Board, gaining a solid understanding of both analytical and life science concepts. This combination strengthened
-                  my problem-solving skills and supported my transition into the IT domain.</p>
-            </div>
-        </div>
-       <div class="timeline-item">
-            <div class="time">2021 - 2025</div>
-            <div class="details">
-                <h3>Sri Sairam Institute Of Technology - Chennai| Bachelor's Degree [B.Tech-IT]</h3>
-                <p>Completed B.Tech in Information Technology, gaining strong knowledge in programming, databases, web development, and core computer science concepts.
-                  This degree helped me build practical skills through projects, labs, and real-time problem-solving.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- PROJECTS -->
-<section class="section-block">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="project-row">
+      <div class="project-row">
         <div class="project-text">
-            <h3>Driver Drowsiness Detection system</h3>
-            <p>A real-time AI-based system that detects driver fatigue using Eye Aspect Ratio (EAR) and facial landmark tracking, developed using Python, OpenCV, dlib, and NumPy. The system continuously monitors eye blink rate and eye closure duration to identify early signs of drowsiness. When fatigue is detected, it instantly triggers an alert to help prevent potential road accidents,
-              ensuring safer driving conditions through continuous monitoring and intelligent vision-based analysis.</p>
+          <h3>Driver Drowsiness Detection system</h3>
+          <p>A real-time AI-based system that detects driver fatigue using Eye Aspect Ratio (EAR) and facial landmark tracking, developed using Python, OpenCV, dlib, and NumPy. When fatigue is detected, it instantly triggers an alert to help prevent potential road accidents.</p>
         </div>
 
         <div class="project-img">
-            <img src="Screenshot 2025-12-03 195524.png" alt="">
+          <img src="screenshot_driver_drowsiness.png" alt="Driver drowsiness project screenshot">
         </div>
-      <br>
-      <div class="project-text">
-            <h3>Personal Portfolio Website</h3>
-            <p>A modern, responsive personal portfolio website built using HTML, CSS, and JavaScript to showcase my skills, projects, education, certifications, and contact information in a clean and professional layout. It includes smooth animations, section transitions, a dark/light mode toggle, a downloadable resume option, and a fully functional contact form using EmailJS. The design is optimized for both desktop and mobile devices, 
-              providing a seamless user experience while reflecting my identity as an aspiring software engineer.</p>
-        </div>
-       <div class="project-img">
-            <img src="ppw.png" alt="">
-        </div>
-    </div>
-</section>
-
-  <section id="contact" class="section contact">
-    <h2>Contact Me</h2>
-    <p class="contact-intro">
-      I’d love to connect! Feel free to reach out for collaborations, opportunities, or queries.
-    </p>
-    <div class="contact-container">
-      <form action="mailto:shairishi.dt14@gmail.com" method="post" enctype="text/plain" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-
-      <div class="contact-info">
-        <p><strong>Email:</strong> <a href="mailto:shairishi.dt14@gmail.com">shairishi.dt14@gmail.com</a></p>
-        <p><strong>Phone:</strong> 6380540075</p>
-        <p><strong>LinkedIn:</strong>
-          <a href="https://www.linkedin.com/in/shaid2003" target="_blank">
-            linkedin.com/in/shaid2003
-          </a>
-        </p>
       </div>
-    </div>
-  </section>
+
+      <div class="project-row">
+        <div class="project-text">
+          <h3>Personal Portfolio Website</h3>
+          <p>A modern, responsive personal portfolio website built using HTML, CSS, and JavaScript to showcase skills, projects, and contact information. Features a dark/light toggle, downloadable resume, and EmailJS contact form.</p>
+        </div>
+
+        <div class="project-img">
+          <img src="ppw.png" alt="Portfolio project screenshot">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Me</h2>
+      <p class="contact-intro">
+        I’d love to connect! Feel free to reach out for collaborations, opportunities, or queries.
+      </p>
+
+      <div class="contact-container">
+        <form id="contactForm" action="mailto:shairishi.dt14@gmail.com" method="post" enctype="text/plain" class="contact-form" aria-label="Contact form">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+
+        <aside class="contact-info" aria-label="Contact information">
+          <p><strong>Email:</strong> <a href="mailto:shairishi.dt14@gmail.com">shairishi.dt14@gmail.com</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+916380540075">+91 63805 40075</a></p>
+          <p><strong>LinkedIn:</strong>
+            <a href="https://www.linkedin.com/in/shaid2003" target="_blank" rel="noopener">linkedin.com/in/shaid2003</a>
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© <span id="year"></span> Shai Rishi | Designed with ❤️ and Code</p>
@@ -176,15 +207,3 @@
   <script src="first.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
