@@ -1,8 +1,16 @@
-/* first.js — enhanced interactions & animations (FULL, NO TILT) */
-
-/* quick selectors */
-const $ = (s, r = document) => r.querySelector(s);
+/* ===== quick helpers ===== */
+const $ = (s, r = document) => (r || document).querySelector(s);
 const $$ = (s, r = document) => Array.from((r || document).querySelectorAll(s));
+
+/* ===== NAV TOGGLE (mobile) ===== */
+const navToggle = $('#navToggle');
+const siteNav = $('#siteNav') || $('#siteNav');
+if (navToggle && siteNav) {
+  navToggle.addEventListener('click', () => {
+    const open = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+}
 
 /* ===== FLIP CARD ===== */
 const flipCard = $('.flip-card');
@@ -10,10 +18,17 @@ const flipBtn = $('#flipBtn');
 const flipBack = $('#flipBack');
 
 if (flipBtn && flipCard) {
-  flipBtn.addEventListener('click', () => flipCard.classList.add('flipped'));
+  flipBtn.addEventListener('click', () => {
+    flipCard.classList.add('flipped');
+    // update accessible attribute
+    flipBtn.setAttribute('aria-pressed', 'true');
+  });
 }
 if (flipBack && flipCard) {
-  flipBack.addEventListener('click', () => flipCard.classList.remove('flipped'));
+  flipBack.addEventListener('click', () => {
+    flipCard.classList.remove('flipped');
+    flipBtn?.setAttribute('aria-pressed', 'false');
+  });
 }
 
 /* ===== TYPING EFFECT (with cursor) ===== */
@@ -21,26 +36,24 @@ const typingEl = $('#typing');
 const typingText = typingEl ? "Hi, I'm Shai Rishi" : "";
 if (typingEl) {
   let k = 0;
-  // create cursor element
   const cursor = document.createElement('span');
   cursor.textContent = '|';
   cursor.style.opacity = '0.95';
   cursor.style.marginLeft = '8px';
   cursor.style.color = 'var(--accent)';
+  cursor.setAttribute('aria-hidden', 'true');
+
+  // ensure a text node to manipulate
+  typingEl.appendChild(document.createTextNode(''));
   typingEl.appendChild(cursor);
 
   (function type() {
     const existingText = typingText.slice(0, k);
-    // ensure text node exists as first child
-    if (!typingEl.firstChild || typingEl.firstChild.nodeType !== Node.TEXT_NODE) {
-      if (typingEl.firstChild) typingEl.insertBefore(document.createTextNode(''), typingEl.firstChild);
-    }
-    typingEl.firstChild.nodeValue = existingText;
+    typingEl.childNodes[0].nodeValue = existingText;
     k++;
     if (k <= typingText.length) {
       setTimeout(type, 60);
     } else {
-      // blink cursor forever
       setInterval(() => cursor.style.opacity = cursor.style.opacity === '0' ? '0.95' : '0', 500);
     }
   })();
@@ -56,7 +69,10 @@ const observer = new IntersectionObserver((entries) => {
       if (e.target.matches('.skill') || e.target.closest('#skills')) {
         $$('.bar span').forEach(s => {
           const pct = parseInt(s.getAttribute('data-percent') || s.dataset.percent || 0, 10);
-          setTimeout(()=> s.style.width = pct + '%', 120);
+          // clamp percent 0-100
+          const clamped = Math.max(0, Math.min(100, isNaN(pct) ? 0 : pct));
+          // small timeout for nicer sequence
+          setTimeout(()=> s.style.width = clamped + '%', 120);
         });
         $$('.bar').forEach(b => b.classList.add('active'));
       }
@@ -85,7 +101,7 @@ function onScrollNav() {
 window.addEventListener('scroll', onScrollNav);
 onScrollNav();
 
-/* small active nav visual */
+/* small active nav styles (injected) */
 const style = document.createElement('style');
 style.innerHTML = `.navbar nav a.active-nav{ color: #0b1220; } .navbar nav a.active-nav::after{ width:48%; }`;
 document.head.appendChild(style);
@@ -103,21 +119,24 @@ navLinks.forEach(a => {
     e.preventDefault();
     const target = document.querySelector(a.getAttribute('href'));
     if (!target) return;
-    const y = target.getBoundingClientRect().top + window.scrollY - 72; // nav offset
+    const y = target.getBoundingClientRect().top + window.scrollY - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72);
     window.scrollTo({ top: y, behavior: 'smooth' });
+    // close mobile nav if open
+    if (siteNav && siteNav.classList.contains('open')) {
+      siteNav.classList.remove('open');
+      navToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 });
 
-/* ===== PROJECT IMAGE: straight & subtle hover (NO tilt) ===== */
+/* ===== PROJECT IMAGE: ensure no inline transform persists ===== */
 $$('.project-img img').forEach(img => {
-  // ensure no inline transform persists
   img.style.transform = 'none';
   img.style.transition = 'transform .45s cubic-bezier(.2,.9,.25,1), filter .35s';
-  // optional subtle hover handled by CSS; attach mouseleave to ensure cleanup
   img.addEventListener('mouseleave', () => img.style.transform = 'none');
 });
 
-/* ===== CONTACT FORM: nice client-side validation + fake send + toast (no DB) ===== */
+/* ===== CONTACT FORM: client-side validation + simulated send + toast (no DB) ===== */
 const contactForm = document.querySelector('.contact-form') || document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', e => {
@@ -159,16 +178,18 @@ const toast = (msg, type='info') => {
   }, 2800);
 };
 
-/* ===== ON LOAD: gentle entrance & safety measures ===== */
+/* ===== ON LOAD: gentle entrance & year update ===== */
 window.addEventListener('load', ()=> {
   const hero = document.querySelector('.hero');
   if (hero) { hero.classList.add('reveal', 'visible'); }
-  // initialize skill bars if user is already scrolled near them
+  // initialize skill bars (in case user is already past them)
   $$('.bar span').forEach(s => {
-    const pct = s.getAttribute('data-percent') || s.dataset.percent || 0;
-    s.style.width = pct + '%';
+    const pct = parseInt(s.getAttribute('data-percent') || s.dataset.percent || 0, 10);
+    const clamped = Math.max(0, Math.min(100, isNaN(pct) ? 0 : pct));
+    s.style.width = clamped + '%';
   });
+  // set year
+  const y = new Date().getFullYear();
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = String(y);
 });
-
-
-
